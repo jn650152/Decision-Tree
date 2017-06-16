@@ -1,0 +1,45 @@
+how to compile the code:
+make
+how to run the program:
+./assign4
+
+input(eg.):
+file name:data2
+choose target attribute:2
+
+The Rules are saved in a file called Rules.
+
+There are 10 files as shown below: 
+attribute_statistics.h:a class to describe whether the attribute is binary
+functions.h  
+makefile  
+README  
+statistics.h:a class to record the number of records with respecitively possible value for target attribute.
+node.h: a class to represent each node in the decision tree.   
+child_node.h: a class to represent a branch and a pointer to the next node.
+functions.cpp: all the functions' implementation.
+main.cpp     
+Rules
+
+a brief description of the overall code architecture:
+
+main:
+read the parameter on file's name
+check whether it is valid
+read file and load data and count the possible value for each attribute
+choose target attribute from binary attributes
+check whether the choice is valid(check_choice_valid)
+get related parameters for DT, including target number, target name, attribute list and possible target value.
+creat a tree(DT) ->same lable(check_label)
+		 ->attribute list is empty(get_majority_name)
+		 ->choose attribute(get_attribute_test_condition)
+			->count entropy before splitting(count_before_entropy)
+			->count entropy after splitting(count_after_entropy)
+		 ->split database(split)
+		 ->change attribute list(get_delete_position)
+		 ->test stopping point for each splitted database(form_database_by_index)
+draw the tree in a file(draw_tree)
+
+
+
+
